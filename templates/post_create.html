@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Create New Post{% endblock %}
+
+{% block content %}
+
+<div class="container m-5">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <form method="POST">{% csrf_token %}
+                {{ form|crispy }}<br>
+                <button type="submit" class="btn btn-success">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pagination %}{% endblock %}

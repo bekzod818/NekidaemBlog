@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Post Detail{% endblock %}
+
+{% block content %}
+
+<div class="container m-5">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div>
+                <form action="" method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <h2>Are you sure you want to delete the {{ object }}?</h2>
+                  <button class="btn btn-outline-danger" type="submit"><i class="bi bi-trash-fill"></i> Delete</button>
+                  <a href="{% url 'post_list' %}" class="btn btn-outline-secondary">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
