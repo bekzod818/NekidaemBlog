@@ -49,7 +49,7 @@ class Post(models.Model):
 def post_created(sender, instance, created, **kwargs):
     if created:
         blog_title = instance.title
-        post_url = 'http://0.0.0.0:8000/posts/%s' % instance.pk
+        post_url = 'http://127.0.0.1:8000/posts/%s' % instance.pk
         user_emails = instance.blog.following.values_list('email', flat=True)
         for email in user_emails:
             email_notification_subscriber.delay(email, blog_title, post_url)
